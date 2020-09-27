@@ -61,9 +61,11 @@ app.delete('/todo/:id', (req, res) => {
     connection.query(sql, (err) => { 
         if (err) throw err; 
         console.log("1 task has been deleted!");
-    });
 
-    res.send(req.params.id);
+        //params because values are in the url ':id', not req.body
+        res.send(req.params.id);
+    });
+    
 })
 
 app.listen(3000, () => {
